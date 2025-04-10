@@ -1,0 +1,14 @@
+@use "sass:math";
+
+$font-name: "Raleway";
+$font-serif: "sans-serif";
+
+$defaultFontSize: 16;
+
+$maxWidth: 1440;
+$minWidth: 375;
+
+$containerWidth: 768;
+
+$containerPadding: 40;
+$containerSidePadding: math.div($containerPadding, 2);
