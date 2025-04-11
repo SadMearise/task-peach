@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/" as *;
 
 .wrapper {
@@ -10,7 +11,12 @@
 
 .container {
   max-width: ($containerWidth + $containerPadding) + px;
-  width: 100%;
+  width: calc(100% - #{$containerPadding}px);
   margin: 0 auto;
   padding: 0 ($containerSidePadding + px);
+  
+  @media (min-width: map.get($breakpoints, "768")) {
+    padding: 0;
+    width: 100%;
+  }
 }

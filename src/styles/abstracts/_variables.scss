@@ -1,14 +1,48 @@
 @use "sass:math";
 
-$font-name: "Raleway";
-$font-serif: "sans-serif";
+$font-primary: "Proxima Nova Condensed";
+$font-secondary: "Proxima Nova";
+$font-serif: sans-serif;
 
-$defaultFontSize: 16;
+$containerWidth: 1220;
 
-$maxWidth: 1440;
-$minWidth: 375;
-
-$containerWidth: 768;
-
-$containerPadding: 40;
+$containerPadding: 30;
 $containerSidePadding: math.div($containerPadding, 2);
+
+$font-weight: (
+  "regular": 400,
+  "semibold": 600,
+  "bold": 700,
+);
+
+$breakpoints: (
+  "320": 320px,
+  "360": 360px,
+  "375": 375px,
+  "425": 425px,
+  "768": 768px,
+  "800": 800px,
+  "900": 900px,
+  "1024": 1024px,
+  "1280": 1280px,
+  "1366": 1366px,
+  "1440": 1440px,
+  "1600": 1600px,
+  "1680": 1680px,
+  "1920": 1920px,
+  "2560": 2560px,
+);
+
+$colors: (
+  "white": #FFFFFF,
+  "light-gray-1": #F2F2F2,
+  "light-gray-2": #F0F0F0,
+  "light-gray-3": #D9D9D9,
+  "light-gray-4": #B1B1B1,
+  "black": #000000,
+  "dark-gray": #444444,
+  "dark-blue": #2D3653,
+  "red-1": #A30C33,
+  "red-2": #B01736,
+  "red-3": #CB0F41
+);
