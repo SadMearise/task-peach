@@ -19,3 +19,13 @@
     padding: 0;
   }
 }
+
+.inner-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 rem(5);
+  
+  @media (min-width: map.get($breakpoints, "992")) {
+    padding: 0 rem(70);
+  }
+}

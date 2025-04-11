@@ -1,1 +1,6 @@
+@use "sass:map";
 @use "../abstracts/" as *;
+
+body {
+  background-color: map.get($colors, "white");
+}
