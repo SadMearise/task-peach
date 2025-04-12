@@ -78,7 +78,7 @@ export default {
               importLoaders: 0,
               sourceMap: false,
               modules: false,
-              url: { filter: (url) => !url.includes("img") && !url.includes("fonts") },
+              url: { filter: (url) => !url.includes("images") && !url.includes("fonts") },
             },
           },
           {
