@@ -2,7 +2,7 @@
 @use "../abstracts/" as *;
 
 .header {
-  border: 1px solid map.get($colors, "light-gray-3");
+  border: rem(1) solid map.get($colors, "light-gray-3");
   margin-bottom: rem(27);
 
   @media (min-width: map.get($breakpoints, "992")) {
