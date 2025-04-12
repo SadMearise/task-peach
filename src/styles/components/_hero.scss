@@ -2,10 +2,10 @@
 @use "../abstracts/" as *;
 
 .hero {
-  margin-bottom: rem(50);
+  margin-top: rem(27);
 
   @media (min-width: map.get($breakpoints, "992")) {
-    margin-bottom: rem(79);
+    margin-top: rem(79);
   }
 
   &__title {
