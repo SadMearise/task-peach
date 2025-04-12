@@ -23,6 +23,13 @@
 }
 
 @font-face {
+  font-family: $font-primary;
+  font-weight: map.get($font-weight, "black");
+  src: url('../assets/fonts/proxima-nova-condensed-black.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
   font-family: $font-secondary;
   font-weight: map.get($font-weight, "regular");
   src: url('../assets/fonts/proxima-nova-regular.ttf') format('truetype');
