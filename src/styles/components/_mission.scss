@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+.mission {
+  position: relative;
+  background-color: map.get($colors, "red-3");
+  overflow: hidden;
+  
+  &__pattern-left {
+    position: absolute;
+    height: 83%;
+    left: -48px;
+    top: 52%;
+    transform: translateY(-50%);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      height: 81%;
+      left: -50px;
+      top: 50%;
+    }
+  }
+
+  &__pattern-right {
+    position: absolute;
+    height: 83%;
+    right: -34px;
+    top: 52%;
+    transform: translateY(-50%);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      height: 80%;
+      right: -54px;
+      top: 50%;
+    }
+  }
+
+  &__overlay-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: map.get($colors, "red-1");
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: rem(32) 0;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      padding: rem(139) 6px;
+    }
+  }
+  
+  &__title {
+    font-weight: map.get($font-weight, "semibold");
+    font-size: rem(28);
+    text-align: center;
+    color: map.get($colors, "white");
+    margin-bottom: rem(10);
+    
+    @media (min-width: map.get($breakpoints, "992")) {
+      font-size: rem(56);
+      margin-bottom: rem(40);
+    }
+  }
+  
+  &__description {
+    font-size: rem(16);
+    line-height: 130%;
+    text-align: center;
+    color: map.get($colors, "white");
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      line-height: 150%;
+      font-size: rem(32);
+    }
+  }
+}

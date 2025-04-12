@@ -23,9 +23,9 @@
 .inner-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 rem(5);
+  padding: 0 5px;
   
   @media (min-width: map.get($breakpoints, "992")) {
-    padding: 0 rem(70);
+    padding: 0 70px;
   }
 }
