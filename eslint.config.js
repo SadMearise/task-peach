@@ -35,6 +35,7 @@ export default [
       "import/prefer-default-export": "off",
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
       "import/no-unresolved": "error",
+      "eol-last": ["error", "always"],
       "prefer-const": "error",
       "max-params": ["error", 3],
       "semi": ["error", "always"],
