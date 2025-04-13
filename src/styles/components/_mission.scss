@@ -6,6 +6,10 @@
   background-color: map.get($colors, "red-3");
   overflow: hidden;
   margin-top: rem(-26);
+
+  @media (min-width: map.get($breakpoints, "992")) {
+    margin-top: rem(102);
+  }
   
   &__pattern-left {
     position: absolute;
