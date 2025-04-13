@@ -75,9 +75,9 @@ officesDropdownMenu.addEventListener("click", function (e) {
 
   const arrow = title.querySelector(".dropdown-menu__arrow-icon");
 
-  if (!arrow) return;
-
-  arrow.classList.toggle("dropdown-menu__arrow-icon_active");
+  if (arrow) {
+    arrow.classList.toggle("dropdown-menu__arrow-icon_active");
+  }
 
   const col = title.closest(".dropdown-menu__col");
 
@@ -85,7 +85,7 @@ officesDropdownMenu.addEventListener("click", function (e) {
 
   const list = col.querySelector(".dropdown-menu__list");
 
-  if (!list) return;
-
-  list.classList.toggle("dropdown-menu__list_active");
+  if (list) {
+    list.classList.toggle("dropdown-menu__list_active");
+  }
 });
