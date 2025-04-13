@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+.line {
+  height: rem(1);
+  width: 100%;
+  background-color: map.get($colors, "black");
+  opacity: 10%;
+  padding: 0;
+  border: 0;
+}
