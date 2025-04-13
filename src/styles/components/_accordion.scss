@@ -96,6 +96,7 @@
     margin-bottom: rem(10);
     min-height: rem(40);
     transition: margin 0.3s ease;
+    gap: 0 rem(15);
 
     @media (min-width: map.get($breakpoints, "768")) {
       margin-bottom: rem(28);
