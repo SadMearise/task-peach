@@ -1,0 +1,145 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+.dropdown-menu {
+  transition: all 0.3s ease;
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  pointer-events: none;
+
+  @media (min-width: map.get($breakpoints, "992")) {
+    box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.06);
+    background-color: map.get($colors, "white");
+  }
+
+  &_active {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: rem(15);
+    pointer-events: auto;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      padding: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: rem(15) 0;
+    font-family: $font-secondary, $font-serif;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      flex-direction: row;
+      padding: 30px 69.5px;
+      justify-content: space-between;
+      gap: rem(24) 0;
+    }
+
+    @media (min-width: map.get($breakpoints, "1280")) {
+      flex-wrap: nowrap;
+      justify-content: normal;
+      gap: 0 rem(24);
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 33.333%;
+
+    &:nth-child(3n - 1) {
+      flex: 0 1 26.666%;
+    }
+
+    &:nth-child(3n) {
+      flex: 0 1 40%;
+    }
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      flex: 0 1 25%;
+
+      &:nth-child(3n - 1),
+      &:nth-child(3n) {
+        flex: 0 1 25%;
+      }
+    }
+
+    @media (min-width: map.get($breakpoints, "1280")) {
+      flex: 1;
+
+      &:nth-child(3n - 1),
+      &:nth-child(3n) {
+        flex: 1;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: rem(3);
+    font-size: rem(14);
+    font-weight: map.get($font-weight, "semibold");
+    color: map.get($colors, "dark-gray");
+    cursor: pointer;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      font-size: rem(18);
+      line-height: 111%;
+      white-space: nowrap;
+      cursor: default;
+    }
+
+    &_active {
+      color: map.get($colors, "red-1");
+    }
+  }
+
+  &__arrow-icon {
+    border-left: rem(4) solid transparent;
+    border-right: rem(4) solid transparent;
+    border-top: rem(5) solid map.get($colors, "dark-gray");
+    transition: all 0.3s ease;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      display: none;
+    }
+
+    &_active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      opacity: 1;
+      pointer-events: auto;
+      max-height: 500px;
+    }
+
+    &_active {
+      max-height: 500px;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__item {
+    font-size: rem(14);
+    margin-top: rem(12);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      font-size: rem(18);
+      line-height: 111%;
+      white-space: nowrap;
+    }
+  }
+}

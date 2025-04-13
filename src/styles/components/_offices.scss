@@ -1,0 +1,97 @@
+@use "sass:map";
+@use "../abstracts/" as *;
+
+.offices {
+  margin-top: rem(50);
+
+  @media (min-width: map.get($breakpoints, "992")) {
+    margin-top: rem(77);
+  }
+
+  &__header {
+    position: relative;
+    padding-top: rem(18);
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.06);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      padding-top: rem(27);
+    }
+  }
+
+  &__header-content {
+    @media (min-width: map.get($breakpoints, "992")) {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: rem(32);
+    }
+  }
+
+  &__dropdown-button {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: center;
+    gap: rem(5);
+    color: map.get($colors, "dark-gray");
+    font-weight: map.get($font-weight, "semibold");
+    font-size: rem(20);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      font-size: rem(24);
+      gap: rem(18);
+    }
+  }
+
+  &__menu {
+    margin-top: rem(20);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      margin-top: 0;
+    }
+  }
+
+  &__dropdown-menu {
+    @media (min-width: map.get($breakpoints, "992")) {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 100px;
+      z-index: 1;
+    }
+  }
+
+  &__dropdown-arrow {
+    display: inline-block;
+    width: rem(24);
+    height: rem(12);
+    transition: all 0.3s ease;
+
+    &_active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__map-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: rem(5);
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      margin-top: rem(88);
+    }
+  }
+
+  &__map-container {
+    position: relative;
+    width: 862px;
+    height: 446px;
+    left: -5px;
+
+    @media (min-width: map.get($breakpoints, "992")) {
+      width: 1190px;
+      height: 604px;
+      left: 31px;
+    }
+  }
+}
