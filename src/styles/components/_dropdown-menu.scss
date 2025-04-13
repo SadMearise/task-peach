@@ -2,7 +2,7 @@
 @use "../abstracts/" as *;
 
 .dropdown-menu {
-  transition: all 0.3s ease;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
   max-height: 0;
   opacity: 0;
   padding: 0;
@@ -102,7 +102,7 @@
     border-left: rem(4) solid transparent;
     border-right: rem(4) solid transparent;
     border-top: rem(5) solid map.get($colors, "dark-gray");
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 
     @media (min-width: map.get($breakpoints, "992")) {
       display: none;

@@ -65,7 +65,7 @@
     display: inline-block;
     width: rem(24);
     height: rem(12);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 
     &_active {
       transform: rotate(180deg);
