@@ -28,4 +28,10 @@
   @media (min-width: map.get($breakpoints, "992")) {
     padding: 0 70px;
   }
+
+  &_no-padding-desktop {
+    @media (min-width: map.get($breakpoints, "992")) {
+      padding: 0;
+    }
+  }
 }
