@@ -46,10 +46,15 @@
   }
 
   &__line {
+    width: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     margin: rem(25) 0;
 
     @media (min-width: map.get($breakpoints, "992")) {
       margin: rem(75) 0 rem(70) 0;
+      width: calc(100% - 60px);
     }
   }
 
