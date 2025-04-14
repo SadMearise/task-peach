@@ -6,8 +6,8 @@ new Splide(".slider", {
   perMove: 1,
   pagination: true,
   arrows: true,
-  // autoplay: true,
-  // interval: 4000,
+  autoplay: true,
+  interval: 4000,
   classes: {
     track: "splide__track slider__track",
     list: "splide__list slider__list",
