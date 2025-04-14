@@ -33,6 +33,18 @@ const copyPluginPatterns = {
   ],
 };
 
+const devServerConfig = IS_DEV ? {
+  historyApiFallback: true,
+  static: PATHS.build,
+  open: { app: { name: "chrome" } },
+  compress: true,
+  port: "auto",
+  hot: true,
+  host: "local-ip",
+  devMiddleware: { writeToDisk: true },
+  watchFiles: `${PATHS.src}/**/*.html`,
+} : {};
+
 export default {
   mode: IS_DEV ? "development" : "production",
   entry: `${PATHS.src}/js/index.js`,
@@ -43,17 +55,7 @@ export default {
     publicPath: "./",
   },
   optimization,
-  devServer: {
-    historyApiFallback: true,
-    static: PATHS.build,
-    open: { app: { name: "chrome" } },
-    compress: true,
-    port: "auto",
-    hot: true,
-    host: "local-ip",
-    devMiddleware: { writeToDisk: true },
-    watchFiles: `${PATHS.src}/**/*.html`,
-  },
+  devServer: devServerConfig,
   plugins: [
     new HTMLWebpackPlugin({
       template: `${PATHS.src}/index.html`,
