@@ -1,9 +1,7 @@
 @use "sass:map";
 @use "../abstracts/" as *;
 
-
 .slider {
-
   &__arrows {
     @media (min-width: map.get($breakpoints, "992")) {
       display: flex;
@@ -23,12 +21,6 @@
       height: rem(20);
       width: rem(10);
     }
-  }
-
-  &__track {
-  }
-
-  &__list {
   }
 
   &__slide {

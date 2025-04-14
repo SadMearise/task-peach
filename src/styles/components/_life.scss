@@ -1,15 +1,11 @@
 @use "sass:map";
 @use "../abstracts/" as *;
 
-
 .life {
   margin: rem(50) 0;
 
   @media (min-width: map.get($breakpoints, "992")) {
     margin: rem(100) 0 rem(67) 0;
-  }
-
-  &__slider {
   }
 
   &__header {
