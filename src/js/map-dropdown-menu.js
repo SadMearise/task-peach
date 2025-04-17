@@ -1,4 +1,5 @@
 const officesDropdownMenu = document.getElementById("officesDropdownMenu");
+const officesDropdownButton = document.getElementById("officesDropdownButton");
 
 const DROPDOWN_DATA = {
   "Москва": ["Москва"],
@@ -11,81 +12,86 @@ const DROPDOWN_DATA = {
   "Дальний Восток": ["Хабаровск", "Владивосток"]
 };
 
-const content = document.createElement("div");
-content.className = "dropdown-menu__content";
+const createCityList = (cities) => {
+  const listElement = document.createElement("ul");
+  listElement.className = "dropdown-menu__list";
 
-Object.entries(DROPDOWN_DATA).forEach(([group, cities]) => {
-  const col = document.createElement("div");
-  col.className = "dropdown-menu__col";
+  cities.forEach(city => {
+    const itemElement = document.createElement("li");
+    itemElement.className = "dropdown-menu__item";
+    itemElement.textContent = city;
+    listElement.appendChild(itemElement);
+  });
 
-  const title = document.createElement("div");
-  title.className = "dropdown-menu__title";
-  title.textContent = group;
+  return listElement;
+};
+
+const createGroupColumn = (groupName, cities) => {
+  const colElement = document.createElement("div");
+  colElement.className = "dropdown-menu__col";
+
+  const titleElement = document.createElement("div");
+  titleElement.className = "dropdown-menu__title";
+  titleElement.textContent = groupName;
+
+  const arrowIconElement = document.createElement("span");
+  arrowIconElement.className = "dropdown-menu__arrow-icon";
+  titleElement.appendChild(arrowIconElement);
+
+  colElement.appendChild(titleElement);
+
+  const isSingleCity = cities.length === 1 && cities[0] === groupName;
   
-  const arrowIcon = document.createElement("span");
-  arrowIcon.className = "dropdown-menu__arrow-icon";
-
-  title.appendChild(arrowIcon);
-
-  col.appendChild(title);
-
-  if (cities.length > 1 || group !== cities[0]) {
-    const list = document.createElement("ul");
-
-    list.className = "dropdown-menu__list";
-
-    cities.forEach((city) => {
-      const item = document.createElement("li");
-      item.className = "dropdown-menu__item";
-      item.textContent = city;
-      list.appendChild(item);
-    });
-
-    col.appendChild(list);
+  if (!isSingleCity) {
+    const listElement = createCityList(cities);
+    colElement.appendChild(listElement);
   }
 
-  content.appendChild(col);
-});
+  return colElement;
+};
 
-officesDropdownMenu.appendChild(content);
+const renderDropdownContent = () => {
+  const contentElement = document.createElement("div");
+  contentElement.className = "dropdown-menu__content";
 
-const officesDropdownButton = document.getElementById("officesDropdownButton");
+  Object.entries(DROPDOWN_DATA).forEach(([group, cities]) => {
+    const colElement = createGroupColumn(group, cities);
+    contentElement.appendChild(colElement);
+  });
 
-officesDropdownButton.addEventListener("click", () => {
-  officesDropdownButton.querySelector(".offices__dropdown-arrow").classList.toggle("offices__dropdown-arrow_active");
+  officesDropdownMenu.appendChild(contentElement);
+};
+
+const toggleDropdownMenu = () => {
+  const dropdownArrowElement = officesDropdownButton.querySelector(".offices__dropdown-arrow");
+
+  dropdownArrowElement.classList.toggle("offices__dropdown-arrow_active");
   officesDropdownMenu.classList.toggle("dropdown-menu_active");
 
   if (window.matchMedia("(min-width: 992px)").matches) {
-    const menu = document.getElementById("officesMenu");
-    const map = document.getElementById("map");
-
-    menu.classList.toggle("menu_inactive");
-    map.classList.toggle("map_inactive");
+    document.getElementById("officesMenu")?.classList.toggle("menu_inactive");
+    document.getElementById("map")?.classList.toggle("map_inactive");
   }
-});
+};
 
-officesDropdownMenu.addEventListener("click", function (e) {
+const handleMobileDropdownClick = (event) => {
   if (window.matchMedia("(min-width: 992px)").matches) return;
 
-  const title = e.target.closest(".dropdown-menu__title");
+  const titleElement = event.target.closest(".dropdown-menu__title");
+  
+  if (!titleElement) return;
 
-  if (!title) return;
+  titleElement.classList.toggle("dropdown-menu__title_active");
 
-  title.classList.toggle("dropdown-menu__title_active");
+  const arrowIconElement = titleElement.querySelector(".dropdown-menu__arrow-icon");
+  arrowIconElement?.classList.toggle("dropdown-menu__arrow-icon_active");
 
-  const arrow = title.querySelector(".dropdown-menu__arrow-icon");
+  const colElement = titleElement.closest(".dropdown-menu__col");
+  const listElement = colElement?.querySelector(".dropdown-menu__list");
+  listElement?.classList.toggle("dropdown-menu__list_active");
+};
 
-  if (arrow) {
-    arrow.classList.toggle("dropdown-menu__arrow-icon_active");
-  }
+renderDropdownContent();
 
-  const col = title.closest(".dropdown-menu__col");
-
-  if (!col) return;
-
-  const list = col.querySelector(".dropdown-menu__list");
-
-  if (list) {
-    list.classList.toggle("dropdown-menu__list_active");
-  }
-});
+officesDropdownButton.addEventListener("click", toggleDropdownMenu);
+officesDropdownMenu.addEventListener("click", handleMobileDropdownClick);

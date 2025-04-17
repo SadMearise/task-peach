@@ -30,18 +30,25 @@ const CITIES = [
 
 const mapCitiesElement = document.getElementById("mapCities");
 
-CITIES.forEach((city) => {
-  const mapCityElement = document.createElement("div");
+const createMapCityElement = ({ name, group, position, size, reverse }) => {
+  const cityElement = document.createElement("div");
+  cityElement.className = `map__city ${position} city`;
+  cityElement.setAttribute("data-group", group);
 
-  const titleSizeClass = city.size ? ` city__title_size_${city.size}` : "";
+  const titleSizeClass = size ? ` city__title_size_${size}` : "";
+  const titleHTML = `<div class="city__title${titleSizeClass}">${name}</div>`;
+  const dotHTML = "<span class=\"city__dot\"></span>";
 
-  const dotElement = "<span class=\"city__dot\"></span>";
-  const titleElement = `<div class="city__title${titleSizeClass}">${city.name}</div>`;
+  cityElement.innerHTML = reverse ? `${titleHTML}${dotHTML}` : `${dotHTML}${titleHTML}`;
 
-  mapCityElement.className = `map__city ${city.position} city`;
-  mapCityElement.setAttribute("data-group", city.group);
-  
-  mapCityElement.innerHTML = city.reverse ? `${titleElement}${dotElement}` : `${dotElement}${titleElement}`;
+  return cityElement;
+};
 
-  mapCitiesElement.appendChild(mapCityElement);
-});
+const renderMapCities = (cities) => {
+  cities.forEach(city => {
+    const cityElement = createMapCityElement(city);
+    mapCitiesElement.appendChild(cityElement);
+  });
+};
+
+renderMapCities(CITIES);
