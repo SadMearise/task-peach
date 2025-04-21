@@ -21,6 +21,6 @@ new Splide(".slider", {
     992: {
       pagination: false,
       arrows: false,
-    }
-  }
+    },
+  },
 }).mount();

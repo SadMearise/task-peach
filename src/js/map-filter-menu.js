@@ -29,7 +29,7 @@ const filterCities = (group) => {
 
 const handleFilterMenuClick = (event) => {
   const clickedItem = event.target.closest(".menu__item[data-group]");
-  
+
   if (!clickedItem) return;
 
   setActiveMenuItem(clickedItem);

@@ -4,41 +4,41 @@
 @font-face {
   font-family: $font-primary;
   font-weight: map.get($font-weight, "regular");
-  src: url('../assets/fonts/proxima-nova-condensed-regular.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-condensed-regular.ttf") format("truetype");
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-primary;
   font-weight: map.get($font-weight, "semibold");
-  src: url('../assets/fonts/proxima-nova-condensed-semibold.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-condensed-semibold.ttf") format("truetype");
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-primary;
   font-weight: map.get($font-weight, "bold");
-  src: url('../assets/fonts/proxima-nova-condensed-bold.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-condensed-bold.ttf") format("truetype");
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-primary;
   font-weight: map.get($font-weight, "black");
-  src: url('../assets/fonts/proxima-nova-condensed-black.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-condensed-black.ttf") format("truetype");
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-secondary;
   font-weight: map.get($font-weight, "regular");
-  src: url('../assets/fonts/proxima-nova-regular.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-regular.ttf") format("truetype");
   font-style: normal;
 }
 
 @font-face {
   font-family: $font-secondary;
   font-weight: map.get($font-weight, "semibold");
-  src: url('../assets/fonts/proxima-nova-semibold.ttf') format('truetype');
+  src: url("../assets/fonts/proxima-nova-semibold.ttf") format("truetype");
   font-style: normal;
 }

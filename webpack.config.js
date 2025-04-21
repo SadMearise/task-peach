@@ -18,13 +18,15 @@ const PATHS = {
 const IS_PROD = process.env.NODE_ENV === "production";
 const IS_DEV = !IS_PROD;
 
-const optimization = IS_PROD ? {
-  splitChunks: { chunks: "all" },
-  minimizer: [
-    new TerserWebpackPlugin({ extractComments: false }),
-    new CssMinimizerWebpackPlugin(),
-  ],
-} : {};
+const optimization = IS_PROD
+  ? {
+      splitChunks: { chunks: "all" },
+      minimizer: [
+        new TerserWebpackPlugin({ extractComments: false }),
+        new CssMinimizerWebpackPlugin(),
+      ],
+    }
+  : {};
 
 const copyPluginPatterns = {
   patterns: [
@@ -33,17 +35,19 @@ const copyPluginPatterns = {
   ],
 };
 
-const devServerConfig = IS_DEV ? {
-  historyApiFallback: true,
-  static: PATHS.build,
-  open: { app: { name: "chrome" } },
-  compress: true,
-  port: "auto",
-  hot: true,
-  host: "local-ip",
-  devMiddleware: { writeToDisk: true },
-  watchFiles: `${PATHS.src}/**/*.html`,
-} : {};
+const devServerConfig = IS_DEV
+  ? {
+      historyApiFallback: true,
+      static: PATHS.build,
+      open: { app: { name: "chrome" } },
+      compress: true,
+      port: "auto",
+      hot: true,
+      host: "local-ip",
+      devMiddleware: { writeToDisk: true },
+      watchFiles: `${PATHS.src}/**/*.html`,
+    }
+  : {};
 
 export default {
   mode: IS_DEV ? "development" : "production",
@@ -85,7 +89,7 @@ export default {
           },
           {
             loader: "postcss-loader",
-            options: { postcssOptions: { plugins: [autoprefixer()], sourceMap: true } }
+            options: { postcssOptions: { plugins: [autoprefixer()], sourceMap: true } },
           },
           {
             loader: "sass-loader",

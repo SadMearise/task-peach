@@ -7,7 +7,7 @@
   @media (min-width: map.get($breakpoints, "992")) {
     margin-top: rem(100);
   }
-  
+
   &__title {
     font-weight: map.get($font-weight, "semibold");
     font-size: rem(28);

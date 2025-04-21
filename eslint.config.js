@@ -8,8 +8,8 @@ import eslintConfigPrettier from "eslint-config-prettier";
 export default [
   {
     plugins: {
-      "prettier": prettierPlugin,
-    }
+      prettier: prettierPlugin,
+    },
   },
   js.configs.recommended,
   importPlugin.flatConfigs.recommended,
@@ -22,24 +22,25 @@ export default [
         ...globals.browser,
         ...globals.es2021,
       },
-    }
+    },
   },
   {
-    ignores: ["node_modules", "dist"]
+    ignores: ["node_modules", "dist"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     rules: {
       ...eslintConfigPrettier.rules,
+      "prettier/prettier": "error",
       "import/extensions": "off",
       "import/prefer-default-export": "off",
-      "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+      "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
       "import/no-unresolved": "error",
       "object-curly-spacing": ["error", "always"],
       "eol-last": ["error", "always"],
       "prefer-const": "error",
       "max-params": ["error", 3],
-      "semi": ["error", "always"],
+      semi: ["error", "always"],
       "max-len": "off",
       "no-param-reassign": "off",
       "linebreak-style": "off",
@@ -73,15 +74,15 @@ export default [
         },
       ],
       "prefer-destructuring": ["error", { object: true, array: false }],
-    }
+    },
   },
   {
     settings: {
       "import/resolver": {
         node: {
-          extensions: [".js"]
+          extensions: [".js"],
         },
-      }
-    }
-  }
+      },
+    },
+  },
 ];

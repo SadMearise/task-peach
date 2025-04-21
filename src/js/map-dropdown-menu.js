@@ -2,21 +2,21 @@ const officesDropdownMenu = document.getElementById("officesDropdownMenu");
 const officesDropdownButton = document.getElementById("officesDropdownButton");
 
 const DROPDOWN_DATA = {
-  "Москва": ["Москва"],
-  "Центр": ["Воронеж", "Ярославль", "Белгород"],
+  Москва: ["Москва"],
+  Центр: ["Воронеж", "Ярославль", "Белгород"],
   "Северо-Запад": ["Санкт-Петербург", "Калининград"],
-  "Юг": ["Ростов-на-Дону", "Краснодар", "Волгоград"],
-  "Волга": ["Казань", "Самара", "Уфа", "Оренбург", "Нижний Новгород"],
-  "Урал": ["Екатеринбург", "Челябинск", "Пермь", "Сургут", "Тюмень", "Ижевск"],
-  "Сибирь": ["Новосибирск", "Омск", "Томск", "Красноярск", "Иркутск"],
-  "Дальний Восток": ["Хабаровск", "Владивосток"]
+  Юг: ["Ростов-на-Дону", "Краснодар", "Волгоград"],
+  Волга: ["Казань", "Самара", "Уфа", "Оренбург", "Нижний Новгород"],
+  Урал: ["Екатеринбург", "Челябинск", "Пермь", "Сургут", "Тюмень", "Ижевск"],
+  Сибирь: ["Новосибирск", "Омск", "Томск", "Красноярск", "Иркутск"],
+  "Дальний Восток": ["Хабаровск", "Владивосток"],
 };
 
 const createCityList = (cities) => {
   const listElement = document.createElement("ul");
   listElement.className = "dropdown-menu__list";
 
-  cities.forEach(city => {
+  cities.forEach((city) => {
     const itemElement = document.createElement("li");
     itemElement.className = "dropdown-menu__item";
     itemElement.textContent = city;
@@ -41,7 +41,7 @@ const createGroupColumn = (groupName, cities) => {
   colElement.appendChild(titleElement);
 
   const isSingleCity = cities.length === 1 && cities[0] === groupName;
-  
+
   if (!isSingleCity) {
     const listElement = createCityList(cities);
     colElement.appendChild(listElement);
@@ -78,7 +78,7 @@ const handleMobileDropdownClick = (event) => {
   if (window.matchMedia("(min-width: 992px)").matches) return;
 
   const titleElement = event.target.closest(".dropdown-menu__title");
-  
+
   if (!titleElement) return;
 
   titleElement.classList.toggle("dropdown-menu__title_active");

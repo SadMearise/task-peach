@@ -10,7 +10,7 @@
   @media (min-width: map.get($breakpoints, "992")) {
     margin-top: rem(102);
   }
-  
+
   &__pattern-left {
     position: absolute;
     height: 83%;
@@ -58,20 +58,20 @@
       padding: rem(139) 6px;
     }
   }
-  
+
   &__title {
     font-weight: map.get($font-weight, "semibold");
     font-size: rem(28);
     text-align: center;
     color: map.get($colors, "white");
     margin-bottom: rem(10);
-    
+
     @media (min-width: map.get($breakpoints, "992")) {
       font-size: rem(56);
       margin-bottom: rem(40);
     }
   }
-  
+
   &__description {
     font-size: rem(16);
     line-height: 130%;

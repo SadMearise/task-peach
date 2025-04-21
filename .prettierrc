@@ -9,6 +9,5 @@
   "useTabs": false,
   "jsxSingleQuote": false,
   "bracketSpacing": true,
-  "singleAttributePerLine": true,
-  "editorconfig": true
+  "singleAttributePerLine": true
 }

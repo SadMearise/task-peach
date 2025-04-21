@@ -36,10 +36,10 @@
     }
 
     &_active {
-      max-height: rem(240);   
+      max-height: rem(240);
     }
   }
-  
+
   &__item-bg {
     height: rem(240);
     background-position: 50%;
@@ -137,7 +137,7 @@
     font-size: rem(16);
     color: map.get($colors, "white");
     line-height: 140%;
-    
+
     @media (min-width: map.get($breakpoints, "992")) {
       font-size: rem(17);
     }

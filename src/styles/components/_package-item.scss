@@ -10,12 +10,12 @@
   font-size: rem(16);
   line-height: 110%;
   text-align: center;
-  
+
   @media (min-width: map.get($breakpoints, "992")) {
     width: 178px;
     font-size: rem(18);
   }
-  
+
   &__image-wrapper {
     position: relative;
     width: 80px;
